@@ -1,26 +1,30 @@
 package popups.controller;
 
 import popups.view.PopupViewer;
+import popups.model.Thingy;
+import java.util.List;
+import java.util.ArrayList;
 
 public class PopupsController
 {
 	private PopupViewer display;
-	
+	private List<Thingy> thingyList;
 	public PopupsController()
 	{
 		display = new PopupViewer();
+		thingyList = new ArrayList<Thingy>();
 	}
 
 	public void start()
 	{
+		learnLists();
+	}
+	private void testLoop()
+	{
 		String answer = "sample";
-		while(answer != null && !answer.equals(""))
+		while(answer != null && !isDouble(answer))
 		{
-			display.displayMessage("Hi there :D");
-			
-			answer = display.collectResponse("what is going on?");
-			display.displayMessage(answer + " is what you said.");
-			
+			answer = display.collectResponse("You need to type in a number!");	
 		}
 	}
 	/**
@@ -66,6 +70,13 @@ public class PopupsController
 		}
 		
 		return isParseable;
+	}
+	private void learnLists()
+	{
+		display.displayMessage(thingyList.size() + " is the size of the list.");
+		Thingy testThingy = new Thingy();
+		thingyList.add(testThingy);
+		display.displayMessage(thingyList.size() + " is the size of the list.");
 	}
 	
 }
