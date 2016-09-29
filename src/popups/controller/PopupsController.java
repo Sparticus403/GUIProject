@@ -45,5 +45,27 @@ public class PopupsController
 		return isValid;
 		
 	}
+	/**
+	 * Checks that the suppled string is parseable to an integer value.
+	 * @param potentialNumber The string to test for parsing.
+	 * @return Whether it could be parsed as an integer.
+	 */
+	private boolean isInteger(String potentialNumber)
+	{
+		boolean isParseable = false;
+		
+		try
+		{
+			int test = Integer.parseInt(potentialNumber);
+			isParseable = true;
+		}
+		catch(NumberFormatException notInt)
+		{
+			display.displayMessage(notInt.getMessage());
+			display.displayMessage("Type in an integer next time!");
+		}
+		
+		return isParseable;
+	}
 	
 }
