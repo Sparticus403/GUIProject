@@ -119,10 +119,16 @@ public class PopupsController
 		{
 			display.displayMessage(currentThingy.getWords());
 		}
-		thingyList.get(2).setWords("Nothing Here?");
+		thingyList.get(2).setWords("Nothing Here in #2?");
 		
 		Thingy thingDel = thingyList.remove(2);
 		display.displayMessage("This thing has been deleted: " + thingDel.getWords());
+		
+		for (int index = 0; index < thingyList.size(); index++)
+		{
+			display.displayMessage(thingyList.get(index).getWords());
+		}
+		
 		
 	}
 	
