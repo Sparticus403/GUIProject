@@ -128,8 +128,18 @@ public class PopupsController
 		{
 			display.displayMessage(thingyList.get(index).getWords());
 		}
-		
-		
+		for(Thingy currentThingy : thingyList)
+		{
+			for (int index = 0; index < thingyList.size(); index++)
+			{
+				display.displayMessage(currentThingy.getWords());
+			}
+		}
+		String words = "These be words.";
+		while(words != null && !isDouble(words))
+		{
+			words = display.collectResponse("Words are here.");
+		}
 	}
 	
 }
